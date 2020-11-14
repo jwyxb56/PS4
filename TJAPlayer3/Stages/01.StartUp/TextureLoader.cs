@@ -312,7 +312,7 @@ namespace TJAPlayer3
             }
             for (int i = 0; i < 5; i++)
             {
-                D = TxC(GAME + DANCER + "0.png");
+                D[i] = TxC(GAME + DANCER + "0.png");
             }
             #endregion
             #region モブ
@@ -653,7 +653,7 @@ namespace TJAPlayer3
             }
             for (int i = 0; i < 5; i++)
             {
-                TJAPlayer3.t安全にDisposeする(ref D);
+                TJAPlayer3.t安全にDisposeする(ref D[i]);
             }
             #endregion
             #region モブ
@@ -900,7 +900,7 @@ namespace TJAPlayer3
         #endregion
         #region 踊り子
         public readonly CTexture[][] Dancer = new CTexture[5][];
-        public CTexture D;
+        public readonly CTexture[] D = new CTexture[5];
         #endregion
         #region モブ
         public CTexture[] Mob;

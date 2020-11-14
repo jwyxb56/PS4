@@ -62,10 +62,7 @@ namespace TJAPlayer3
 
             for (int i = 0; i < 5; i++)
             {
-                for (int k = 0; k < TJAPlayer3.Skin.Game_Dancer_PtnA; k++)
-                {
-                    NullCheckAndRender(ref TJAPlayer3.Tx.D);
-                }
+                NullCheckAndRender(ref TJAPlayer3.Tx.D[i]);
             }
 
             NullCheckAndRender(ref TJAPlayer3.Tx.Effects_GoGoSplash);
