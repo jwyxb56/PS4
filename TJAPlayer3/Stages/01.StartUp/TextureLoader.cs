@@ -298,7 +298,7 @@ namespace TJAPlayer3
             }
             #endregion
             #region 踊り子
-            TJAPlayer3.Skin.Game_Dancer_Ptn = TJAPlayer3.t連番画像の枚数を数える(CSkin.Path(BASE + GAME + DANCER + @"1\"));
+            TJAPlayer3.Skin.Game_Dancer_Ptn = TJAPlayer3.t連番画像の枚数を数える(CSkin.Path(BASE + GAME + DANCER));
             if (TJAPlayer3.Skin.Game_Dancer_Ptn != 0)
             {
                 for (int i = 0; i < Dancer.Length; i++)
@@ -306,9 +306,13 @@ namespace TJAPlayer3
                     Dancer[i] = new CTexture[TJAPlayer3.Skin.Game_Dancer_Ptn];
                     for (int p = 0; p < TJAPlayer3.Skin.Game_Dancer_Ptn; p++)
                     {
-                        Dancer[i][p] = TxC(GAME + DANCER + (i + 1) + @"\" + p.ToString() + ".png");
+                        Dancer[i][p] = TxC(GAME + DANCER  + "123.png");
                     }
                 }
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                D = TxC(GAME + DANCER + "0.png");
             }
             #endregion
             #region モブ
@@ -647,6 +651,10 @@ namespace TJAPlayer3
             {
                 TJAPlayer3.t安全にDisposeする(Dancer[i]);
             }
+            for (int i = 0; i < 5; i++)
+            {
+                TJAPlayer3.t安全にDisposeする(ref D);
+            }
             #endregion
             #region モブ
             TJAPlayer3.t安全にDisposeする(Mob);
@@ -892,6 +900,7 @@ namespace TJAPlayer3
         #endregion
         #region 踊り子
         public readonly CTexture[][] Dancer = new CTexture[5][];
+        public CTexture D;
         #endregion
         #region モブ
         public CTexture[] Mob;

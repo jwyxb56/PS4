@@ -1357,7 +1357,7 @@ namespace TJAPlayer3
                             else if (strCommand == "Game_Dancer_Gauge")
                             {
                                 string[] strSplit = strParam.Split(',');
-                                for (int i = 0; i < 3; i++)
+                                for (int i = 0; i < 5; i++)
                                 {
                                     Game_Dancer_Gauge[i] = int.Parse(strSplit[i]);
                                 }
@@ -2524,7 +2524,9 @@ namespace TJAPlayer3
         public string Game_Dancer_Motion = "0";
         public int Game_Dancer_Ptn = 0;
         public int Game_Dancer_Beat = 8;
-        public int[] Game_Dancer_Gauge = new int[] { 0, 60, 80 };
+        public int[] Game_Dancer_Gauge = new int[] { 0, 20, 40, 60, 80 };
+        public int Game_Dancer_PtnA = 24;
+        public int Game_Dancer_Speed = 50;
         #endregion
         #region Mob
         public int Game_Mob_Ptn = 0;
