@@ -62,7 +62,7 @@ namespace TJAPlayer3
                 {
                     if ((int)TJAPlayer3.stage演奏ドラム画面.actGauge.db現在のゲージ値[0] >= TJAPlayer3.Skin.Game_Dancer_Gauge[i])
                     {
-                        TJAPlayer3.Tx.D.t2D中心基準描画(TJAPlayer3.app.Device, TJAPlayer3.Skin.Game_Dancer_X[i], TJAPlayer3.Skin.Game_Dancer_Y[i], new Rectangle(406 * (this.モーションナンバー.n現在の値), 406 * n, 406, 406));
+                        TJAPlayer3.Tx.D[this.ar踊り子モーション番号[(int)this.モーションナンバー.db現在の値]].t2D中心基準描画(TJAPlayer3.app.Device, TJAPlayer3.Skin.Game_Dancer_X[i], TJAPlayer3.Skin.Game_Dancer_Y[i], new Rectangle(406 * (this.モーションナンバー.n現在の値), 406 * n, 406, 406));
                     }
                 }
             }
