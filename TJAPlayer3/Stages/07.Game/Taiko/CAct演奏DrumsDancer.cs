@@ -1,4 +1,6 @@
 ﻿using FDK;
+using System.Drawing;
+using System;
 
 namespace TJAPlayer3
 {
@@ -26,9 +28,11 @@ namespace TJAPlayer3
 
         public override void OnManagedリソースの作成()
         {
+            n =random.Next(1, 6);
             this.ar踊り子モーション番号 = C変換.ar配列形式のstringをint配列に変換して返す(TJAPlayer3.Skin.Game_Dancer_Motion);
             if(this.ar踊り子モーション番号 == null) ar踊り子モーション番号 = C変換.ar配列形式のstringをint配列に変換して返す("0,0");
             this.ct踊り子モーション = new CCounter(0, this.ar踊り子モーション番号.Length - 1, 0.01, CSound管理.rc演奏用タイマ);
+            this.モーションナンバー = new CCounter(0, TJAPlayer3.Skin.Game_Dancer_PtnA, TJAPlayer3.Skin.Game_Dancer_Speed, TJAPlayer3.Timer);
             base.OnManagedリソースの作成();
         }
 
@@ -52,13 +56,27 @@ namespace TJAPlayer3
                     }
                 }
             }
-            return base.On進行描画();
+            if (TJAPlayer3.ConfigIni.ShowDancer && this.モーションナンバー != null) this.モーションナンバー.t進行Loop();
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if ((int)TJAPlayer3.stage演奏ドラム画面.actGauge.db現在のゲージ値[0] >= TJAPlayer3.Skin.Game_Dancer_Gauge[i])
+                    {
+                        TJAPlayer3.Tx.D.t2D中心基準描画(TJAPlayer3.app.Device, TJAPlayer3.Skin.Game_Dancer_X[i], TJAPlayer3.Skin.Game_Dancer_Y[i], new Rectangle(406 * (this.モーションナンバー.n現在の値), 406 * n, 406, 406));
+                    }
+                }
+            }
+
+                return base.On進行描画();
         }
 
         #region[ private ]
         //-----------------
         public int[] ar踊り子モーション番号;
         public CCounter ct踊り子モーション;
+        public CCounter モーションナンバー;
+        int n;
+        public Random random = new Random();
         //-----------------
         #endregion
     }
