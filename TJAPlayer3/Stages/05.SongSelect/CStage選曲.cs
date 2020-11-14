@@ -372,8 +372,17 @@ namespace TJAPlayer3
 					#region nanido
 					if (TJAPlayer3.Tx.SongSelect_Frame_Score2 != null)
 					{
-						TJAPlayer3.Tx.SongSelect_Frame_Score2.t2D描画(TJAPlayer3.app.Device, 642, 401, new Rectangle(0, 0, 844, 354));
-
+						for(int i = 0; i < 4; i++)
+                        {
+							if(i != this.act難易度選択画面.n現在の選択行)
+							{
+								TJAPlayer3.Tx.SongSelect_Frame_Score2.t2D下中央基準描画(TJAPlayer3.app.Device, 693 + (i * 258), TJAPlayer3.Skin.SongSelect_Overall_Y + 530, new Rectangle(220 * i, 0, 220, 337));
+							}
+							else
+							{
+								TJAPlayer3.Tx.SongSelect_Frame_Score3.t2D下中央基準描画(TJAPlayer3.app.Device, 693 + (i * 258), TJAPlayer3.Skin.SongSelect_Overall_Y + 590, new Rectangle(327 * i, 0, 327, 451));
+							}
+						}
 						if (this.act難易度選択画面.n現在の選択行 >= 0)
 							TJAPlayer3.Tx.SongSelect_Score_Select?.t2D下中央基準描画(TJAPlayer3.app.Device, 739 + (this.act難易度選択画面.n現在の選択行 * 215), 441);
 						else

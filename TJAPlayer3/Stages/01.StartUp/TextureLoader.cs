@@ -102,6 +102,7 @@ namespace TJAPlayer3
             SongSelect_Branch_Text = TxC(SONGSELECT + @"Branch_Text.png");
             SongSelect_Frame_Score = TxC(SONGSELECT + @"Frame_Score.png");
             SongSelect_Frame_Score2 = TxC(SONGSELECT + @"Frame_Score2.png");
+            SongSelect_Frame_Score3 = TxC(SONGSELECT + @"Frame_Score3.png");
             SongSelect_Frame_BackBox = TxC(SONGSELECT + @"Frame_BackBox.png");
             SongSelect_Frame_Random = TxC(SONGSELECT + @"Frame_Random.png");
             SongSelect_Score_Select = TxC(SONGSELECT + @"Score_Select.png");
@@ -593,6 +594,7 @@ namespace TJAPlayer3
             TJAPlayer3.t安全にDisposeする(SongSelect_ND_Genre);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Frame_Score);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Frame_Score2);
+            TJAPlayer3.t安全にDisposeする(ref SongSelect_Frame_Score3);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Frame_BackBox);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Frame_Random);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Score_Select);
@@ -843,7 +845,8 @@ namespace TJAPlayer3
             SongSelect_Branch_Text,
             SongSelect_Frame_Score,
            SongSelect_Frame_Score2,
-            SongSelect_Frame_BackBox,
+            SongSelect_Frame_Score3,
+           SongSelect_Frame_BackBox,
             SongSelect_Frame_Random,
             SongSelect_Score_Select,
             SongSelect_GenreText,
