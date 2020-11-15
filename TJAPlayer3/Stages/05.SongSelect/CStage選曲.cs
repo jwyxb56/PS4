@@ -264,8 +264,11 @@ namespace TJAPlayer3
 				#endregion
 
 				this.ct登場時アニメ用共通.t進行();
-
-			    if (TJAPlayer3.Tx.SongSelect_Background != null)
+				if (TJAPlayer3.ConfigIni.eGameMode == EGame.特訓モード)
+				{
+					TJAPlayer3.Tx.SongSelect_Backgroundt.t2D描画(TJAPlayer3.app.Device, 0, 0);
+				}
+				else if (TJAPlayer3.Tx.SongSelect_Background != null )
 			    {
 			        TJAPlayer3.Tx.SongSelect_Background.t2D描画(TJAPlayer3.app.Device, 0, 0);
 			    }

@@ -92,6 +92,7 @@ namespace TJAPlayer3
 
             #region 3_選曲画面
             SongSelect_Background = TxC(SONGSELECT + @"Background.png");
+            SongSelect_Backgroundt = TxC(SONGSELECT + @"Background_t.png");
             SongSelect_Header = TxC(SONGSELECT + @"Header.png");
             SongSelect_Footer = TxC(SONGSELECT + @"Footer.png");
             SongSelect_Difficulty = TxC(SONGSELECT + @"Difficulty.png");
@@ -586,6 +587,7 @@ namespace TJAPlayer3
 
             #region 3_選曲画面
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Background);
+            TJAPlayer3.t安全にDisposeする(ref SongSelect_Backgroundt);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Header);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Footer);
             TJAPlayer3.t安全にDisposeする(ref SongSelect_Difficulty);
@@ -840,6 +842,7 @@ namespace TJAPlayer3
 
         #region 3_選曲画面
         public CTexture SongSelect_Background,
+            SongSelect_Backgroundt,
             SongSelect_Header,
             SongSelect_Footer,
             SongSelect_Difficulty,

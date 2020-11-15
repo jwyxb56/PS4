@@ -710,16 +710,16 @@ namespace TJAPlayer3
                     if (TJAPlayer3.Tx.Effects_Fire != null)
                     {
                         float f倍率 = 1.0f;
-                        float fRotate = C変換.DegreeToRadian(-15.0f);
+                        float fRotate = C変換.DegreeToRadian(-25.0f);
                         float[] ar倍率 = new float[] { 0.8f, 1.2f, 1.7f, 2.5f, 2.3f, 2.2f, 2.0f, 1.8f, 1.7f, 1.6f, 1.6f, 1.5f, 1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1.0f };
 
                         f倍率 = ar倍率[this.ctゴーゴー.n現在の値];
 
                         Matrix mat = Matrix.Identity;
                         Matrix mat1 = Matrix.Identity;
-                        mat *= Matrix.Scaling(f倍率, f倍率, 11.5f);
-                        mat1 *= Matrix.RotationZ(fRotate);
-                        mat *= Matrix.Translation(TJAPlayer3.Skin.Game_Lane_Field_X[i] + 80 - SampleFramework.GameWindowSize.Width / 2.0f, -(TJAPlayer3.Skin.Game_Lane_Field_Y[i] - 65 + (195 / 2) - SampleFramework.GameWindowSize.Height / 2.0f), 11.5f);
+                        mat *= Matrix.Scaling(1.22f, 1.22f, f倍率);
+                        mat *= Matrix.RotationZ(fRotate);
+                        mat *= Matrix.Translation(TJAPlayer3.Skin.Game_Lane_Field_X[i] + 16 - SampleFramework.GameWindowSize.Width / 2.0f, -(TJAPlayer3.Skin.Game_Lane_Field_Y[i] - 57 + (195 / 2) - SampleFramework.GameWindowSize.Height / 2.0f), 13f);
                         mat1 *=Matrix.Translation(TJAPlayer3.Skin.Game_Lane_Field_X[i] - 895, TJAPlayer3.Skin.Game_Lane_Field_Y[i] + (192 / 2) + 18 - (TJAPlayer3.Tx.Effects_Fire.szテクスチャサイズ.Height / 2), 0);
                         //this.txゴーゴー炎.b加算合成 = true;
 
