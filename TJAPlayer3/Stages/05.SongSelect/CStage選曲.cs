@@ -112,7 +112,6 @@ namespace TJAPlayer3
 			base.list子Activities.Add( this.actPresound = new CActSelectPresound() );
 			base.list子Activities.Add( this.actInformation = new CActSelectInformation() );
 			base.list子Activities.Add( this.actSortSongs = new CActSortSongs() );
-			base.list子Activities.Add( this.actShowCurrentPosition = new CActSelectShowCurrentPosition() );
 			base.list子Activities.Add( this.actQuickConfig = new CActSelectQuickConfig() );
 			base.list子Activities.Add( this.act難易度選択画面 = new CActSelect難易度選択画面() );
 
@@ -341,8 +340,7 @@ namespace TJAPlayer3
 				//this.actArtistComment.On進行描画();
                 this.act演奏履歴パネル.On進行描画();
 				//this.actオプションパネル.On進行描画();
-				this.actShowCurrentPosition.On進行描画();								// #27648 2011.3.28 yyagi
-
+			
                 //CDTXMania.act文字コンソール.tPrint( 0, 0, C文字コンソール.Eフォント種別.白, this.n現在選択中の曲の難易度.ToString() );
                 TJAPlayer3.Tx.SongSelect_Difficulty.t2D描画( TJAPlayer3.app.Device, 980, 30, new Rectangle( 0, 70 * this.n現在選択中の曲の難易度, 260, 70 ) );
 
@@ -891,8 +889,7 @@ namespace TJAPlayer3
 		private CActSelectステータスパネル actステータスパネル;
 		public CActSelect演奏履歴パネル act演奏履歴パネル;
 		public CActSelect曲リスト act曲リスト;
-		private CActSelectShowCurrentPosition actShowCurrentPosition;
-        public CActSelect難易度選択画面 act難易度選択画面;
+		  public CActSelect難易度選択画面 act難易度選択画面;
 		public CCounter ct難易度選択用;
 		public CActSortSongs actSortSongs;
 		private CActSelectQuickConfig actQuickConfig;
