@@ -84,6 +84,10 @@ namespace TJAPlayer3
             #region 1P-背景
             if ( !TJAPlayer3.stage演奏ドラム画面.bDoublePlay )
             {
+                if (TJAPlayer3.ConfigIni.eGameMode == EGame.特訓モード)
+                {
+
+                }
                 if (TJAPlayer3.stage演奏ドラム画面.actGauge.db現在のゲージ値[0] < 80)
                 {
                     if (TJAPlayer3.Tx.Background_Down[0] != null)

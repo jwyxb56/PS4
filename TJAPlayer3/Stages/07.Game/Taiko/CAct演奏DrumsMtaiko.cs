@@ -458,13 +458,9 @@ namespace TJAPlayer3
         private long nフラッシュ制御タイマ;
 
         //private CTexture[] txコースシンボル = new CTexture[ 6 ];
-        private string[] strCourseSymbolFileName;
-
+     
         //オプション
-        private CTexture txオプションパネル_HS;
-        private CTexture txオプションパネル_RANMIR;
-        private CTexture txオプションパネル_特殊;
-        private int nHS;
+       private int nHS;
         private CCounter A;
         private CCounter As;
         //ネームプレート

@@ -311,7 +311,6 @@ namespace TJAPlayer3
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
 			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
-			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 		}
 		public void t前に移動()
 		{
@@ -324,7 +323,6 @@ namespace TJAPlayer3
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
 			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
-			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 		}
 		public void t難易度レベルをひとつ進める()
 		{
@@ -347,8 +345,6 @@ namespace TJAPlayer3
 				if( this.r現在選択中の曲.arスコア[ this.n現在のアンカ難易度レベル ] != null )	// 曲が存在してるならここで終了。存在してないなら次のレベルへGo。
 					break;
 			}
-
-
 			// 曲毎に表示しているスキル値を、新しい難易度レベルに合わせて取得し直す。（表示されている13曲全部。）
 
 			C曲リストノード song = this.r現在選択中の曲;
@@ -981,7 +977,8 @@ namespace TJAPlayer3
 
 
 						if( this.n目標のスクロールカウンタ == 0 )
-							TJAPlayer3.stage選曲.t選択曲変更通知();		// スクロール完了＝選択曲変更！
+							TJAPlayer3.stage選曲.t選択曲変更通知();      // スクロール完了＝選択曲変更！
+						this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 
 						//-----------------
 						#endregion
@@ -1050,12 +1047,14 @@ namespace TJAPlayer3
 					    this.ttk選択している曲のサブタイトル = null;
 						
 						if( this.n目標のスクロールカウンタ == 0 )
-							TJAPlayer3.stage選曲.t選択曲変更通知();		// スクロール完了＝選択曲変更！
+							TJAPlayer3.stage選曲.t選択曲変更通知();      // スクロール完了＝選択曲変更！
+						this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
+
 						//-----------------
 						#endregion
 					}
 
-                    if(this.b選択曲が変更された && n現在のスクロールカウンタ==0)
+					if (this.b選択曲が変更された && n現在のスクロールカウンタ==0)
                     {
                         if (this.ttk選択している曲の曲名 != null)
                         {

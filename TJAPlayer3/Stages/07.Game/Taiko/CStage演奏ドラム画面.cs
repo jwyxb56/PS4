@@ -1917,7 +1917,7 @@ namespace TJAPlayer3
                 //ボードの横幅は333px
                 //数字フォントの小さいほうはリザルトのものと同じ。
                 if ( TJAPlayer3.Tx.Judge_Meter != null )
-                    TJAPlayer3.Tx.Judge_Meter.t2D描画( TJAPlayer3.app.Device, 0, 360 );
+                    TJAPlayer3.Tx.Judge_Meter.t2D下中央基準描画( TJAPlayer3.app.Device, 228, 1080 );
 
                 this.t小文字表示( 102, 494, string.Format( "{0,4:###0}", this.nヒット数_Auto含まない.Drums.Perfect.ToString() ), false );
                 this.t小文字表示( 102, 532, string.Format( "{0,4:###0}", this.nヒット数_Auto含まない.Drums.Great.ToString() ), false );
