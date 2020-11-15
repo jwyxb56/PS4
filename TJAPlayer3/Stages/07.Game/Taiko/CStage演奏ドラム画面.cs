@@ -360,13 +360,10 @@ namespace TJAPlayer3
                     actDancer.On進行描画();
                 }
 
-                if(!bDoublePlay && TJAPlayer3.ConfigIni.ShowFooter)
+                if (!bDoublePlay && TJAPlayer3.ConfigIni.ShowFooter)
                     this.actFooter.On進行描画();
 
-                if( TJAPlayer3.ConfigIni.ShowChara )
-                    this.actChara.On進行描画();
-
-                if(TJAPlayer3.ConfigIni.ShowMob)
+                if (TJAPlayer3.ConfigIni.ShowMob)
                     this.actMob.On進行描画();
 
                 if ( TJAPlayer3.ConfigIni.eGameMode != EGame.OFF )
@@ -401,6 +398,9 @@ namespace TJAPlayer3
                 this.actDan.On進行描画();
 
                 this.actMtaiko.On進行描画();
+
+                if (TJAPlayer3.ConfigIni.ShowChara)
+                    this.actChara.On進行描画();
 
                 this.GoGoSplash.On進行描画();
                 this.t進行描画_リアルタイム判定数表示();
