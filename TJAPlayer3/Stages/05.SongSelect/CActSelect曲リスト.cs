@@ -1106,11 +1106,18 @@ namespace TJAPlayer3
 			{
 				if (this.n現在のスクロールカウンタ == 0)
 				{
-					this.counter.t進行();
-					var frameBoxIndex = CStrジャンルtoNum.ForFrameBoxIndex(r現在選択中の曲.strジャンル);
-					TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.X = this.counter.n現在の値 / 100f;
-					TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.Y = this.counter.n現在の値 / 100f;
-					TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex]?.t2D拡大率考慮中央基準描画(TJAPlayer3.app.Device, 960, TJAPlayer3.Skin.SongSelect_Overall_Y + 327);
+					Matrix mat = Matrix.Identity;
+					float fRotate = -C変換.DegreeToRadian(q * (this.揺r.n現在の値 / 334.0f));
+					{
+						mat *= SlimDX.Matrix.RotationZ(fRotate);
+						//さあ揺れよう
+						mat *= Matrix.Translation(0, 200, 0);
+						this.counter.t進行();
+						var frameBoxIndex = CStrジャンルtoNum.ForFrameBoxIndex(r現在選択中の曲.strジャンル);
+						//TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.X = this.counter.n現在の値 / 100f;
+						//TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.Y = this.counter.n現在の値 / 100f;
+						TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex]?.t3D描画(TJAPlayer3.app.Device, mat);
+					}
 				}
 				{ 
 
@@ -1296,29 +1303,35 @@ namespace TJAPlayer3
 							int x = i選曲バーX座標;
 							int xAnime = this.ptバーの座標[n見た目の行番号].X + ((int)((this.ptバーの座標[n次のパネル番号].X - this.ptバーの座標[n見た目の行番号].X) * (((double)Math.Abs(this.n現在のスクロールカウンタ)) / 100.0)));
 							int y = this.ptバーの座標[n見た目の行番号].Y + ((int)((this.ptバーの座標[n次のパネル番号].Y - this.ptバーの座標[n見た目の行番号].Y) * (((double)Math.Abs(this.n現在のスクロールカウンタ)) / 100.0)));
+							int size = this.ptバーの拡大率[n見た目の行番号] + ((int)((this.ptバーの拡大率[n次のパネル番号] - this.ptバーの拡大率[n見た目の行番号]) * (((double)Math.Abs(this.n現在のスクロールカウンタ)) / 100.0)));
 
 							//-----------------
 							#region [ バーテクスチャを描画。]
 							//-----------------
 							if (n現在のスクロールカウンタ != 0)
-								this.tジャンル別選択されていない曲バーの描画(xAnime - 20, TJAPlayer3.Skin.SongSelect_Overall_Y + y, this.stバー情報[nパネル番号].strジャンル, 1);
+								this.tジャンル別選択されていない曲バーの描画(xAnime - 20 - 960, TJAPlayer3.Skin.SongSelect_Overall_Y + y + 295, this.stバー情報[nパネル番号].strジャンル, size);
 							else if (n見た目の行番号 != 5)
-								this.tジャンル別選択されていない曲バーの描画(xAnime - 20, TJAPlayer3.Skin.SongSelect_Overall_Y + y, this.stバー情報[nパネル番号].strジャンル, 1);
+								this.tジャンル別選択されていない曲バーの描画(xAnime - 20 - 960, TJAPlayer3.Skin.SongSelect_Overall_Y + y + 295, this.stバー情報[nパネル番号].strジャンル, size);
 							if (this.stバー情報[nパネル番号].b分岐[TJAPlayer3.stage選曲.n現在選択中の曲の難易度] == true && n見た目の行番号 != 5)
 								TJAPlayer3.Tx.SongSelect_Branch.t2D描画(TJAPlayer3.app.Device, xAnime + 66, TJAPlayer3.Skin.SongSelect_Overall_Y - 40 + y);
 							if (this.stバー情報[nパネル番号].nScore[TJAPlayer3.stage選曲.n現在選択中の曲の難易度] <= 1000)
 							{
-									TJAPlayer3.Tx.SongSelect_Sc.t2D描画(TJAPlayer3.app.Device, xAnime + 66, TJAPlayer3.Skin.SongSelect_Overall_Y - 40 + y);
+								TJAPlayer3.Tx.SongSelect_Sc.t2D描画(TJAPlayer3.app.Device, xAnime + 66, TJAPlayer3.Skin.SongSelect_Overall_Y - 40 + y);
 							}
+
 							//-----------------
 							#endregion
 
 
+
 							#region [ タイトル名テクスチャを描画。]
+							Matrix mat = Matrix.Identity;
+							mat *= Matrix.Translation(xAnime - 20 - 960, TJAPlayer3.Skin.SongSelect_Overall_Y + y + 295, size);
+
 							if (n現在のスクロールカウンタ != 0)
-								ResolveTitleTexture(this.stバー情報[nパネル番号].ttkタイトル).t2D拡大率考慮中央基準描画(TJAPlayer3.app.Device, xAnime + 450, TJAPlayer3.Skin.SongSelect_Overall_Y + 65 + y);
+								ResolveTitleTexture(this.stバー情報[nパネル番号].ttkタイトル).t3D描画(TJAPlayer3.app.Device, mat);
 							else if (n見た目の行番号 != 5)
-								ResolveTitleTexture(this.stバー情報[nパネル番号].ttkタイトル).t2D拡大率考慮中央基準描画(TJAPlayer3.app.Device, xAnime + 450, TJAPlayer3.Skin.SongSelect_Overall_Y + 65 + y);
+								ResolveTitleTexture(this.stバー情報[nパネル番号].ttkタイトル).t3D描画(TJAPlayer3.app.Device, mat);
 
 							#endregion
 

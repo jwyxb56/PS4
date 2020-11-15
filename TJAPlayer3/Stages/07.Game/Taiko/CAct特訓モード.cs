@@ -70,7 +70,7 @@ namespace TJAPlayer3
 
                 TJAPlayer3.act文字コンソール.tPrint(256, 360, C文字コンソール.Eフォント種別.白, TJAPlayer3.stage演奏ドラム画面.actPlayInfo.NowMeasure[0] + "/" + this.n小節の総数);
 
-                if (TJAPlayer3.Input管理.Keyboard.bキーが押された((int)Key.Space))
+                if (TJAPlayer3.Input管理.Keyboard.bキーが押された((int)Key.Q))
                 {
                     if (this.b特訓PAUSE)
                     {

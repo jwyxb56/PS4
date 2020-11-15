@@ -1917,7 +1917,7 @@ namespace TJAPlayer3
                 //ボードの横幅は333px
                 //数字フォントの小さいほうはリザルトのものと同じ。
                 if ( TJAPlayer3.Tx.Judge_Meter != null )
-                    TJAPlayer3.Tx.Judge_Meter.t2D描画( TJAPlayer3.app.Device, 0, 360 );
+                    TJAPlayer3.Tx.Judge_Meter.t2D描画( TJAPlayer3.app.Device, 0, 658 );
 
                 this.t小文字表示( 102, 494, string.Format( "{0,4:###0}", this.nヒット数_Auto含まない.Drums.Perfect.ToString() ), false );
                 this.t小文字表示( 102, 532, string.Format( "{0,4:###0}", this.nヒット数_Auto含まない.Drums.Great.ToString() ), false );
@@ -1938,10 +1938,10 @@ namespace TJAPlayer3
                 if (double.IsNaN(dbMISS率))
                     dbMISS率 = 0;
 
-                this.t大文字表示( 202, 436, string.Format( "{0,3:##0}%", dbたたけた率 ) );
-                this.t小文字表示( 206, 494, string.Format( "{0,3:##0}%", dbPERFECT率 ), false );
-                this.t小文字表示( 206, 532, string.Format( "{0,3:##0}%", dbGREAT率 ), false );
-                this.t小文字表示( 206, 570, string.Format( "{0,3:##0}%", dbMISS率 ), false );
+                this.t大文字表示( 202, 636, string.Format( "{0,3:##0}%", dbたたけた率 ) );
+                this.t小文字表示( 206, 794, string.Format( "{0,3:##0}%", dbPERFECT率 ), false );
+                this.t小文字表示( 206, 832, string.Format( "{0,3:##0}%", dbGREAT率 ), false );
+                this.t小文字表示( 206, 970, string.Format( "{0,3:##0}%", dbMISS率 ), false );
             }
         }
 
