@@ -35,7 +35,7 @@ namespace TJAPlayer3
             this.n総移動時間2 = -1;
             this.nDefaultJudgePos[0] = TJAPlayer3.Skin.Game_Lane_Field_X[0];
             this.nDefaultJudgePos[1] = TJAPlayer3.Skin.Game_Lane_Field_Y[0];
-            this.ctゴーゴー炎 = new CCounter(0, 6, 25, TJAPlayer3.Timer);
+            this.ctゴーゴー炎 = new CCounter(1, 40, 35, TJAPlayer3.Timer);
             this.透明度 = new CCounter(0, 100, 10, TJAPlayer3.Timer);
             base.On活性化();
         }
@@ -717,20 +717,20 @@ namespace TJAPlayer3
 
                         Matrix mat = Matrix.Identity;
                         Matrix mat1 = Matrix.Identity;
-                        mat *= Matrix.Scaling(f倍率, f倍率, 1.0f);
+                        mat *= Matrix.Scaling(f倍率, f倍率, 11.5f);
                         mat1 *= Matrix.RotationZ(fRotate);
-                        mat *= Matrix.Translation(TJAPlayer3.Skin.Game_Lane_Field_X[i] + 80 - SampleFramework.GameWindowSize.Width / 2.0f, -(TJAPlayer3.Skin.Game_Lane_Field_Y[i] - 65 + (195 / 2) - SampleFramework.GameWindowSize.Height / 2.0f), 0f);
+                        mat *= Matrix.Translation(TJAPlayer3.Skin.Game_Lane_Field_X[i] + 80 - SampleFramework.GameWindowSize.Width / 2.0f, -(TJAPlayer3.Skin.Game_Lane_Field_Y[i] - 65 + (195 / 2) - SampleFramework.GameWindowSize.Height / 2.0f), 11.5f);
                         mat1 *=Matrix.Translation(TJAPlayer3.Skin.Game_Lane_Field_X[i] - 895, TJAPlayer3.Skin.Game_Lane_Field_Y[i] + (192 / 2) + 18 - (TJAPlayer3.Tx.Effects_Fire.szテクスチャサイズ.Height / 2), 0);
                         //this.txゴーゴー炎.b加算合成 = true;
 
                         //this.ctゴーゴー.n現在の値 = 6;
                         if (this.ctゴーゴー.b終了値に達した)
                         {
-                            TJAPlayer3.Tx.Effects_Fire.t3D描画(TJAPlayer3.app.Device, mat1, new Rectangle(335 * (this.ctゴーゴー炎.n現在の値), 0, 335, 390));
+                            TJAPlayer3.Tx.Effects_Fire.t3D描画(TJAPlayer3.app.Device, mat, new Rectangle(248 * (this.ctゴーゴー炎.n現在の値 / 10), 300 * (this.ctゴーゴー炎.n現在の値 % 10), 248, 300));
                         }
                         else
                         {
-                            TJAPlayer3.Tx.Effects_Fire.t3D描画(TJAPlayer3.app.Device, mat, new Rectangle(335 * (this.ctゴーゴー炎.n現在の値), 0, 335, 390));
+                            TJAPlayer3.Tx.Effects_Fire.t3D描画(TJAPlayer3.app.Device, mat, new Rectangle(248 * (this.ctゴーゴー炎.n現在の値 / 10), 300 * (this.ctゴーゴー炎.n現在の値 % 10), 248, 300));
                         }
                     }
                 }
