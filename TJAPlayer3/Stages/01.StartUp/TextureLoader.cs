@@ -323,6 +323,10 @@ namespace TJAPlayer3
             {
                 Mob[i] = TxC(GAME + MOB + @"Ptn0_" + i.ToString() + ".png");
             }
+            for (int i = 0; i < Mob1.Length; i++)
+            {
+                Mob1[i] = TxC(GAME + MOB + @"Ptn1_" + i.ToString() + ".png");
+            }
             #endregion
             #region フッター
             Mob_Footer = TxC(GAME + FOOTER + @"0.png");
@@ -660,6 +664,7 @@ namespace TJAPlayer3
             #endregion
             #region モブ
             TJAPlayer3.t安全にDisposeする(Mob);
+            TJAPlayer3.t安全にDisposeする(Mob1);
             #endregion
             #region フッター
             TJAPlayer3.t安全にDisposeする(ref Mob_Footer);
@@ -908,6 +913,7 @@ namespace TJAPlayer3
         #region モブ
         public CTexture[] Mob;
         public CTexture Mob_Footer;
+        public readonly CTexture[] Mob1 = new CTexture[2];
         #endregion
         #region 背景
         public CTexture Background,
