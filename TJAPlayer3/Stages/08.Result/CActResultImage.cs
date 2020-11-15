@@ -75,9 +75,7 @@ namespace TJAPlayer3
 		#region [ private ]
 		//-----------------
 		private CCounter ct登場用;
-		private CTexture r表示するリザルト画像;
-		private CTexture txリザルト画像;
-
+	
 		//-----------------
 		#endregion
 	}

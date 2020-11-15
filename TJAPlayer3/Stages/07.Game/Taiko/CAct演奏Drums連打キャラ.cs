@@ -267,14 +267,7 @@ namespace TJAPlayer3
 
         private RollChara[] RollCharas = new RollChara[128];
         private Random random = new Random();
-        private int[,] StartPoint;
-        private int[,] StartPoint_1P;
-        private int[,] StartPoint_2P;
-        private float[,] Speed;
-        private float[,] Speed_1P;
-        private float[,] Speed_2P;
-        private int CharaPtn;
-        //-----------------
+         //-----------------
         #endregion
 
     }

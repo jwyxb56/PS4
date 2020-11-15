@@ -1986,8 +1986,6 @@ namespace TJAPlayer3
 
 		#endregion
 		private CItemToggle iLogOutputLog;
-		private CItemToggle iSystemAdjustWaves;
-		private CItemToggle iSystemAudienceSound;
 		private CItemToggle iSystemApplyLoudnessMetadata;
 		private CItemInteger iSystemTargetLoudness;
 		private CItemToggle iSystemApplySongVol;
@@ -2001,33 +1999,18 @@ namespace TJAPlayer3
 //		private CItemToggle iSystemGraph; #24074 2011.01.23 comment-out ikanick オプション(Drums)へ移行
 		private CItemInteger iSystemBGAlpha;
 		private CItemToggle iSystemBGMSound;
-		private CItemList iSystemCYGroup;
-		private CItemToggle iSystemCymbalFree;
-		private CItemList iSystemDamageLevel;
 		private CItemToggle iSystemDebugInfo;
 //		private CItemToggle iSystemDrums;
-		private CItemToggle iSystemFillIn;
-		private CItemList iSystemFTGroup;
 		private CItemToggle iSystemFullscreen;
 //		private CItemToggle iSystemGuitar;
-		private CItemList iSystemHHGroup;
-		private CItemList iSystemBDGroup;		// #27029 2012.1.4 from
-		private CItemToggle iSystemHitSound;
-		private CItemList iSystemHitSoundPriorityCY;
-		private CItemList iSystemHitSoundPriorityFT;
-		private CItemList iSystemHitSoundPriorityHH;
-		private CItemInteger iSystemMinComboBass;
-		private CItemInteger iSystemMinComboDrums;
-		private CItemInteger iSystemMinComboGuitar;
+	private CItemInteger iSystemMinComboDrums;
 		private CItemInteger iSystemPreviewImageWait;
 		private CItemInteger iSystemPreviewSoundWait;
 		private CItemToggle iSystemRandomFromSubBox;
 		private CItemBase iSystemReturnToMenu;
 		private CItemToggle iSystemSaveScore;
 		private CItemToggle iSystemStageFailed;
-		private CItemToggle iSystemStoicMode;
 		private CItemToggle iSystemVSyncWait;
-		private CItemList	iSystemShowLag;					// #25370 2011.6.3 yyagi
 		private CItemToggle iSystemAutoResultCapture;		// #25399 2011.6.9 yyagi
         private CItemToggle SendDiscordPlayingInformation;
         private CItemToggle iSystemBufferedInput;
@@ -2045,14 +2028,11 @@ namespace TJAPlayer3
 		private int iSystemSoundTimerType_initial;			// #33689 2014.6.17 yyagi
 
 		private CItemToggle iSystemTimeStretch;				// #23664 2013.2.24 yyagi
-		private CItemList iSystemJudgePosGuitar;			// #33891 2014.6.26 yyagi
-		private CItemList iSystemJudgePosBass;				// #33891 2014.6.26 yyagi
-
+		
 		//private CItemList iDrumsJudgeDispPriority;	//
 		//private CItemList iGuitarJudgeDispPriority;	//
 		//private CItemList iBassJudgeDispPriority;		//
-		private CItemList iSystemJudgeDispPriority;
-
+		
 		private List<CItemBase> list項目リスト;
 		private long nスクロール用タイマ値;
 		private int n現在のスクロールカウンタ;
@@ -2086,56 +2066,22 @@ namespace TJAPlayer3
 		private CItemBase iBassGoToKeyAssign;
 		private CItemBase iSystemGoToKeyAssign;		// #24609
 
-		private CItemList iSystemGRmode;
-
-		private CItemToggle iBassR;							//
-		private CItemToggle iBassG;							//
-		private CItemToggle iBassB;							//
-		private CItemToggle iBassPick;						//
-		private CItemToggle iBassW;							//
-	
 		//private CItemToggle iBassHidden;
-		private CItemToggle iBassLeft;
-		private CItemToggle iBassLight;
-		private CItemList iBassPosition;
-		private CItemList iBassRandom;
 		private CItemBase iBassReturnToMenu;
-		private CItemToggle iBassReverse;
 		private CItemInteger iBassScrollSpeed;
 		//private CItemToggle iBassSudden;
-		private CItemList iCommonDark;
 		private CItemInteger iCommonPlaySpeed;
 //		private CItemBase iCommonReturnToMenu;
-
-		private CItemToggle iDrumsBass;
-		private CItemToggle iDrumsCymbalRide;
-		private CItemToggle iDrumsFloorTom;
-		//private CItemToggle iDrumsHidden;
-		private CItemToggle iDrumsHighTom;
-		private CItemToggle iDrumsHiHat;
-		private CItemToggle iDrumsLeftCymbal;
-		private CItemToggle iDrumsLowTom;
-		private CItemList iDrumsPosition;
-		private CItemBase iDrumsReturnToMenu;
-		private CItemToggle iDrumsReverse;
+	private CItemBase iDrumsReturnToMenu;
 		private CItemInteger iDrumsScrollSpeed;
-		private CItemToggle iDrumsSnare;
-		//private CItemToggle iDrumsSudden;
 		private CItemToggle iDrumsTight;
-		private CItemToggle iDrumsGraph;        // #24074 2011.01.23 add ikanick
-        private CItemToggle iDrumsLeftPedal;
-        private CItemToggle iDrumsLeftBassDrum;
-        private CItemToggle iDrumsComboDisp;
-
-        private CItemToggle iTaikoAutoPlay;
+	     private CItemToggle iTaikoAutoPlay;
         private CItemToggle iTaikoAutoPlay2P;
         private CItemToggle iTaikoAutoRoll;
         private CItemToggle iTaikoBranchGuide;
         private CItemList iTaikoDefaultCourse; //2017.01.30 DD デフォルトでカーソルをあわせる難易度
         private CItemList iTaikoScoreMode;
-        private CItemToggle iTaikoHispeedRandom;
-        private CItemList iTaikoBranchAnime;
-        private CItemToggle iTaikoChara;
+       private CItemList iTaikoBranchAnime;
         private CItemToggle iTaikoNoInfo;
 		private CItemList iTaikoRandom;
         private CItemList iTaikoStealth;
@@ -2153,27 +2099,12 @@ namespace TJAPlayer3
         CItemToggle ShinuchiMode;
         CItemToggle FastRender;
         CItemInteger MusicPreTimeMs;
-		private CItemToggle iGuitarR;						//
-		private CItemToggle iGuitarG;						//
-		private CItemToggle iGuitarB;						//
-		private CItemToggle iGuitarPick;					//
-		private CItemToggle iGuitarW;						//
-
-		//private CItemToggle iGuitarHidden;
-		private CItemToggle iGuitarLeft;
-		private CItemToggle iGuitarLight;
-		private CItemList iGuitarPosition;
-		private CItemList iGuitarRandom;
 		private CItemBase iGuitarReturnToMenu;
-		private CItemToggle iGuitarReverse;
 		private CItemInteger iGuitarScrollSpeed;
 		//private CItemToggle iGuitarSudden;
 		private CItemInteger iInputAdjustTimeMs;
 		private CItemList iSystemSkinSubfolder;				// #28195 2012.5.2 yyagi
 		private CItemToggle iSystemUseBoxDefSkin;			// #28195 2012.5.6 yyagi
-		private CItemList iDrumsSudHid;						// #32072 2013.9.20 yyagi
-		private CItemList iGuitarSudHid;					// #32072 2013.9.20 yyagi
-		private CItemList iBassSudHid;						// #32072 2013.9.20 yyagi
 		private CItemBase iSystemReloadDTX;					// #32081 2013.10.21 yyagi
 		//private CItemInteger iSystemMasterVolume;			// #33700 2014.4.26 yyagi
 

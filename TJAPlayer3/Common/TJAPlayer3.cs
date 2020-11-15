@@ -1451,9 +1451,9 @@ for (int i = 0; i < 3; i++) {
 
 		private List<CActivity> listトップレベルActivities;
 		private int n進行描画の戻り値;
-		private MouseButtons mb = System.Windows.Forms.MouseButtons.Left;
-		private CSound previewSound;
-		public static long StartupTime
+		private MouseButtons mb = MouseButtons.Left;
+
+        public static long StartupTime
 		{
 			get;
 			private set;
@@ -1614,11 +1614,7 @@ for (int i = 0; i < 3; i++) {
 				TJAPlayer3.ConfigIni.strSystemSkinSubfolderFullName = TJAPlayer3.Skin.GetCurrentSkinSubfolderFullName(true);    // 旧指定のSkinフォルダが消滅していた場合に備える
 				Trace.TraceInformation("スキンの初期化を完了しました。");
 			}
-			catch (Exception e)
-			{
-				Trace.TraceInformation("スキンの初期化に失敗しました。");
-				throw;
-			}
+			
 			finally
 			{
 				Trace.Unindent();
@@ -1716,11 +1712,6 @@ for (int i = 0; i < 3; i++) {
 					}
 				}
 				Trace.TraceInformation("DirectInput の初期化を完了しました。");
-			}
-			catch (Exception exception2)
-			{
-				Trace.TraceError("DirectInput, MIDI入力の初期化に失敗しました。");
-				throw;
 			}
 			finally
 			{
