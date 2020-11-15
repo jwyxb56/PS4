@@ -309,7 +309,9 @@ namespace TJAPlayer3
 			this.b選択曲が変更された = true;
 			this.tenkai = new CCounter(0, 163, 3, TJAPlayer3.Timer);
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
+			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
+			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 		}
 		public void t前に移動()
 		{
@@ -321,12 +323,16 @@ namespace TJAPlayer3
 			this.tenkai = new CCounter(0, 163, 3, TJAPlayer3.Timer);
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
+			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
+			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 		}
 		public void t難易度レベルをひとつ進める()
 		{
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
 			this.tenkai = new CCounter(0, 163, 3, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
+			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
+			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 			if ( ( this.r現在選択中の曲 == null ) || ( this.r現在選択中の曲.nスコア数 <= 1 ) )
 				return;		// 曲にスコアが０～１個しかないなら進める意味なし。
 			
@@ -372,6 +378,8 @@ namespace TJAPlayer3
 			this.counter = new CCounter(0, 110, 20, TJAPlayer3.Timer);
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
+			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
+			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 			if ( ( this.r現在選択中の曲 == null ) || ( this.r現在選択中の曲.nスコア数 <= 1 ) )
 				return;		// 曲にスコアが０～１個しかないなら進める意味なし。
 			
@@ -641,6 +649,8 @@ namespace TJAPlayer3
 			this.tenkai = new CCounter();
 			this.counter = new CCounter(0, 100, 3, TJAPlayer3.Timer);
 			this.counter1 = new CCounter(0, 130, 2, TJAPlayer3.Timer);
+			this.揺 = new CCounter(0, 100, 4, TJAPlayer3.Timer);
+			this.揺r = new CCounter(100, 200, 4, TJAPlayer3.Timer);
 			#region [ Songs not found画像 ]
 			try
 			{
@@ -783,6 +793,7 @@ namespace TJAPlayer3
 
 			// 本ステージは、(1)登場アニメフェーズ → (2)通常フェーズ　と二段階にわけて進む。
 			this.tenkai.t進行();
+			this.揺.t進行();
 			int tenkai = 0;
 
 			if (this.tenkai.n現在の値 >= 66)
@@ -804,6 +815,15 @@ namespace TJAPlayer3
 				tenkai2 = (int)(-150 + this.tenkai.n現在の値 / 1.1);
 			}
 
+			int q = 0;
+			if (this.揺.n現在の値 <= 50)
+			{
+				q = 0 + 揺.n現在の値;
+			}
+			else
+			{
+				q = 100 - 揺.n現在の値;
+			}
 
 			// 進行。
 			if (n現在のスクロールカウンタ == 0) ct三角矢印アニメ.t進行Loop();
@@ -1340,7 +1360,7 @@ namespace TJAPlayer3
 					int size = this.ptバーの拡大率[n見た目の行番号] + ((int)((this.ptバーの拡大率[n次のパネル番号] - this.ptバーの拡大率[n見た目の行番号]) * (((double)Math.Abs(this.n現在のスクロールカウンタ)) /100.0)));
 					{
 						// (B) スクロール中の選択曲バー、またはその他のバーの描画。v,vmncm
-
+				
 						#region [ バーテクスチャを描画。]
 						//-----------------
 						if (n現在のスクロールカウンタ != 0)
@@ -1387,11 +1407,18 @@ namespace TJAPlayer3
 
 				if (this.n現在のスクロールカウンタ == 0)
 				{
-					this.counter.t進行();
-					var frameBoxIndex = CStrジャンルtoNum.ForFrameBoxIndex(r現在選択中の曲.strジャンル);
-					//TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.X = this.counter.n現在の値 / 100f;
-					//TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.Y = this.counter.n現在の値 / 100f;
-					TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex]?.t2D拡大率考慮中央基準描画(TJAPlayer3.app.Device, 960, TJAPlayer3.Skin.SongSelect_Overall_Y + 224);
+					Matrix mat = Matrix.Identity;
+					float fRotate = -C変換.DegreeToRadian(q * (this.揺r.n現在の値 / 334.0f));
+					{
+						mat *= SlimDX.Matrix.RotationZ(fRotate);
+						//さあ揺れよう
+						mat *= Matrix.Translation(0, 200, 0);
+						this.counter.t進行();
+						var frameBoxIndex = CStrジャンルtoNum.ForFrameBoxIndex(r現在選択中の曲.strジャンル);
+						//TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.X = this.counter.n現在の値 / 100f;
+						//TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex].vc拡大縮小倍率.Y = this.counter.n現在の値 / 100f;
+						TJAPlayer3.Tx.SongSelect_Bar_Center[frameBoxIndex]?.t3D描画(TJAPlayer3.app.Device, mat);
+					}
 				}
 				{ 
 				switch (r現在選択中の曲.eノード種別)
@@ -1708,6 +1735,8 @@ namespace TJAPlayer3
 		private CCounter counter;
 		private CCounter counter1;
 		public CCounter tenkai;
+		public CCounter 揺;
+		public CCounter 揺r;
 		private EFIFOモード mode;
         private CPrivateFastFont pfMusicName;
         private CPrivateFastFont pfSubtitle;
