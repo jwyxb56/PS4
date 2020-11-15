@@ -327,6 +327,9 @@ namespace TJAPlayer3
         //public Cシステムサウンド soundRed = null;
         //public Cシステムサウンド soundBlue = null;
         public Cシステムサウンド soundBalloon = null;
+        public Cシステムサウンド sound特訓再生音 = null;
+        public Cシステムサウンド sound特訓停止音 = null;
+        public Cシステムサウンド sound特訓スクロール音 = null;
 
 
         private readonly int nシステムサウンド数 = (int)Eシステムサウンド.Count;
@@ -561,6 +564,9 @@ namespace TJAPlayer3
             this.soundBalloon = new Cシステムサウンド(@"Sounds\balloon.ogg", false, false, ESoundGroup.SoundEffect);
             this.sound曲決定音 = new Cシステムサウンド(@"Sounds\SongDecide.ogg", false, false, ESoundGroup.Voice);
             this.sound成績発表 = new Cシステムサウンド(@"Sounds\ResultIn.ogg", false, false, ESoundGroup.Voice);
+            this.sound特訓再生音 = new Cシステムサウンド(@"Sounds\Resume.ogg", false, false, ESoundGroup.SoundEffect);
+            this.sound特訓停止音 = new Cシステムサウンド(@"Sounds\Pause.ogg", false, false, ESoundGroup.SoundEffect);
+            this.sound特訓スクロール音 = new Cシステムサウンド(@"Sounds\Scroll.ogg", false, false, ESoundGroup.SoundEffect);
             ReloadSkin();
             tReadSkinConfig();
         }

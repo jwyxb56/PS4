@@ -38,9 +38,11 @@ namespace TJAPlayer3
     {
         OFF = 0,
         完走叩ききりまショー = 1,
-        完走叩ききりまショー激辛 = 2
-    }
-    public enum E難易度表示タイプ
+		完走叩ききりまショー激辛 = 2,
+		特訓モード = 3
+
+	}
+	public enum E難易度表示タイプ
     {
         OFF = 0,
         n曲目に表示 = 1,
